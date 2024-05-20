@@ -2,9 +2,31 @@
 <html lang="ru">
     <head>
         <link rel="stylesheet" href="styles.css" />
+        <script src="scripts/PageAppearing.js"></script>
+        <script>
+            window.addEventListener("load", () => {
+                var likeButtons = document.getElementsByClassName("like-button");
+                var pressed = [];
+                
+                for (let i = 0; i < likeButtons.length; i++) {
+                    pressed.push(false);
+                }
+
+                for (let i = 0; i < likeButtons.length; i++) {
+                    likeButtons.item(i).addEventListener("click", () => {
+                        let spanWithCount = likeButtons.item(i).children.item(1);
+                        let count = Number(spanWithCount.innerText);
+                        pressed[i] ? count-- : count++;
+                        pressed[i] = !pressed[i];
+                        spanWithCount.innerHTML = count;
+                        console.log(count);
+                    })
+                }
+            });
+        </script>
     </head>
 
-    <body>
+    <body style="opacity: 0">
         <header>
             <div class="header-layout">
                 <div class="header-left">
