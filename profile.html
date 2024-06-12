@@ -3,9 +3,9 @@
     <head>
         <link rel="stylesheet" href="styles.css" />
         <script src="scripts/PageAppearing.js"></script>
+        <script src="scripts/MoreTopics.js"></script>
         <script>
             function showProfileMenu() {
-                console.log(event.currentTarget);
                 document
                     .getElementsByClassName("account-menu")
                     .item(0)
@@ -168,7 +168,7 @@
                             </a>
                         </ul>
 
-                        <ul class="side-menu-section">
+                        <ul class="side-menu-section" id="topics-list">
                             <div class="side-menu-title">Темы</div>
                             <a href="/popular.html">
                                 <li class="side-menu-item">
@@ -302,7 +302,7 @@
                                     >
                                 </li>
                             </a>
-                            <a href="/popular.html">
+                            <a style="cursor: pointer;" onclick="showMore()" id="more-topics">
                                 <li class="side-menu-item">
                                     <div class="image">
                                         <img
