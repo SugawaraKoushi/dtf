@@ -16,4 +16,5 @@ const fadeIn = () => {
 
 var opacity = 0;
 var intervalID = 0;
-window.onload = fadeIn;
+let timeout = Math.random() * 1000;
+window.onload = setTimeout(fadeIn, timeout);
