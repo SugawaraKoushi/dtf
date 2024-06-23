@@ -367,6 +367,7 @@ button:hover {
     height: 90px;
     margin-top: -50px;
     box-shadow: 0 0 0 3px #232324;
+    z-index: 2;
 }
 
 .side-menu-item-text, .account-menu-item-text {
