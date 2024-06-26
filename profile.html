@@ -1,323 +1,463 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="scripts/PageAppearing.js"></script>
-    <script src="scripts/MoreTopics.js"></script>
-    <script>
-        function showProfileMenu() {
-            document
-                .getElementsByClassName("account-menu")
-                .item(0)
-                .classList.toggle("show");
-        }
-
-        window.onclick = function (e) {
-            if (!e.target.matches(".account-menu-button")) {
-                var accountMenu = document
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="scripts/PageAppearing.js"></script>
+        <script src="scripts/MoreTopics.js"></script>
+        <script src="scripts/DragNDropImage.js"></script>
+        <script>
+            function showProfileMenu() {
+                document
                     .getElementsByClassName("account-menu")
-                    .item(0);
-                if (accountMenu.classList.contains("show")) {
-                    accountMenu.classList.remove("show");
-                }
+                    .item(0)
+                    .classList.toggle("show");
             }
-        };
-    </script>
-    <script>
-        function onCoverImageMouseOver() {
-            let img = document.getElementById("profile-cover-image");
-            img.style = "opacity: 0.5; transition: 250ms;";
-            let element = document.getElementsByClassName("profile-cover").item(0);
-            element.style = "position: relative;";
 
-            let span = document.createElement("span");
-            span.id = "drag-n-drop-text";
-            span.textContent = "Перетащите изображение сюда, чтобы изменить его";
-            let left = element.offsetWidth / 6;
-            let top = element.offsetHeight / 2.5;
-            span.style = `position: absolute; left: ${left}px; top: ${top}px; z-index: 2;`;
-            element.appendChild(span);
-        }
+            window.onclick = function (e) {
+                if (!e.target.matches(".account-menu-button")) {
+                    var accountMenu = document
+                        .getElementsByClassName("account-menu")
+                        .item(0);
+                    if (accountMenu.classList.contains("show")) {
+                        accountMenu.classList.remove("show");
+                    }
+                }
+            };
+        </script>
+        <script>
+            function onCoverImageMouseOver() {
+                let img = document.getElementById("profile-cover-image");
+                img.style = "opacity: 0.5; transition: 250ms;";
+                let element = document
+                    .getElementsByClassName("profile-cover")
+                    .item(0);
+                element.style = "position: relative;";
 
-        function onConverImageMouseOut() {
-            let img = document.getElementById("profile-cover-image");
-            img.style = "opacity: 1; transition: 250ms";
-            let element = document.getElementsByClassName("profile-cover").item(0);
-            let span = document.getElementById("drag-n-drop-text");
-            element.removeChild(span);
-        }
-    </script>
-</head>
+                let span = document.createElement("span");
+                span.id = "drag-n-drop-text";
+                span.textContent =
+                    "Перетащите изображение сюда, чтобы изменить его";
+                let left = element.offsetWidth / 6;
+                let top = element.offsetHeight / 2.5;
+                span.style = `position: absolute; left: ${left}px; top: ${top}px; z-index: 2;`;
+                element.appendChild(span);
+            }
 
-<body style="opacity: 0">
-    <header>
-        <div class="header-layout">
-            <div class="header-left">
-                <img src="icons/logo.svg" />
-            </div>
-            <div class="header-center">
-                <input class="field" placeholder="Поиск" />
-            </div>
-            <div class="header-right">
-                <button class="button-size-m write-button" type="button">
-                    Написать
-                </button>
-                <div class="account">
-                    <button onclick="showProfileMenu()" class="button-size-m account-menu-button">
-                        <div class="image author-icon">
-                            <img class="icon" src="icons/profile/avatar.jpg" />
-                        </div>
-                        <div class="image author-icon">
-                            <img class="icon" src="icons/side-menu/topics/more-icon.svg" />
-                        </div>
+            function onConverImageMouseOut() {
+                let img = document.getElementById("profile-cover-image");
+                img.style = "opacity: 1; transition: 250ms";
+                let element = document
+                    .getElementsByClassName("profile-cover")
+                    .item(0);
+                let span = document.getElementById("drag-n-drop-text");
+                element.removeChild(span);
+            }
+        </script>
+    </head>
+
+    <body style="opacity: 0">
+        <header>
+            <div class="header-layout">
+                <div class="header-left">
+                    <img src="icons/logo.svg" />
+                </div>
+                <div class="header-center">
+                    <input class="field" placeholder="Поиск" />
+                </div>
+                <div class="header-right">
+                    <button class="button-size-m write-button" type="button">
+                        Написать
                     </button>
-                    <div class="account-menu">
-                        <h5 class="account-menu-title">Мой профиль</h5>
-                        <a href="profile.html" class="user-card">
-                            <div class="image account-icon">
-                                <img class="icon" src="icons/profile/avatar.jpg" />
+                    <div class="account">
+                        <button
+                            onclick="showProfileMenu()"
+                            class="button-size-m account-menu-button"
+                        >
+                            <div class="image author-icon">
+                                <img
+                                    class="icon"
+                                    src="icons/profile/avatar.jpg"
+                                />
                             </div>
-                            <div>
-                                <div class="user-card-title">
-                                    <h3 class="user-card-name">
-                                        ИТз-212 Фокин Владислав
-                                    </h3>
+                            <div class="image author-icon">
+                                <img
+                                    class="icon"
+                                    src="icons/side-menu/topics/more-icon.svg"
+                                />
+                            </div>
+                        </button>
+                        <div class="account-menu">
+                            <h5 class="account-menu-title">Мой профиль</h5>
+                            <a href="profile.html" class="user-card">
+                                <div class="image account-icon">
+                                    <img
+                                        class="icon"
+                                        src="icons/profile/avatar.jpg"
+                                    />
                                 </div>
-                                <span class="user-card-subtitle">Личный блог</span>
-                            </div>
-                        </a>
-                        <ul class="account-menu-content">
-                            <a href="">
-                                <li class="account-menu-item">
-                                    <div class="image">
-                                        <img class="icon" src="icons/side-menu/menu/my-list-icon.svg" />
+                                <div>
+                                    <div class="user-card-title">
+                                        <h3 class="user-card-name">
+                                            ИТз-212 Фокин Владислав
+                                        </h3>
                                     </div>
-                                    <span class="account-menu-item-text">Черновики</span>
+                                    <span class="user-card-subtitle"
+                                        >Личный блог</span
+                                    >
+                                </div>
+                            </a>
+                            <ul class="account-menu-content">
+                                <a href="">
+                                    <li class="account-menu-item">
+                                        <div class="image">
+                                            <img
+                                                class="icon"
+                                                src="icons/side-menu/menu/my-list-icon.svg"
+                                            />
+                                        </div>
+                                        <span class="account-menu-item-text"
+                                            >Черновики</span
+                                        >
+                                    </li>
+                                </a>
+                                <a href="">
+                                    <li class="account-menu-item">
+                                        <div class="image">
+                                            <img
+                                                class="icon"
+                                                src="icons/content/favourite-icon.svg"
+                                            />
+                                        </div>
+                                        <span class="account-menu-item-text"
+                                            >Закладки</span
+                                        >
+                                    </li>
+                                </a>
+                                <a href="/settings.html">
+                                    <li class="account-menu-item">
+                                        <div class="image">
+                                            <img
+                                                class="icon"
+                                                src="icons/settings/settings.svg"
+                                            />
+                                        </div>
+                                        <span class="account-menu-item-text"
+                                            >Настройки</span
+                                        >
+                                    </li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="main-layout">
+                <div class="aside main-left">
+                    <div class="side-menu">
+                        <ul class="side-menu-section">
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/menu/popular-icon.svg"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text">
+                                        Популярное
+                                    </span>
                                 </li>
                             </a>
-                            <a href="">
-                                <li class="account-menu-item">
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
                                     <div class="image">
-                                        <img class="icon" src="icons/content/favourite-icon.svg" />
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/menu/new-icon.svg"
+                                        />
                                     </div>
-                                    <span class="account-menu-item-text">Закладки</span>
+                                    <span class="side-menu-item-text"
+                                        >Свежее</span
+                                    >
                                 </li>
                             </a>
-                            <a href="/settings.html">
-                                <li class="account-menu-item">
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
                                     <div class="image">
-                                        <img class="icon" src="icons/settings/settings.svg" />
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/menu/my-list-icon.svg"
+                                        />
                                     </div>
-                                    <span class="account-menu-item-text">Настройки</span>
+                                    <span class="side-menu-item-text"
+                                        >Моя лента</span
+                                    >
+                                </li>
+                            </a>
+                        </ul>
+
+                        <ul class="side-menu-section" id="topics-list">
+                            <div class="side-menu-title">Темы</div>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/games-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Игры</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/music-icon.png"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Музыка</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/oftop-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Офтоп</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/questions-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Вопросы</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/memes-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Мемы</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/weaboo-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Виабу</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/pets-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Милые животные</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/art-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Творчество</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/night-music-icon.webp"
+                                        />
+                                    </div>
+                                    <span
+                                        class="side-menu-item-text"
+                                        href="/popular.html"
+                                        >Ночной музпостинг</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/cinema-icon.webp"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Кино и сериалы</span
+                                    >
+                                </li>
+                            </a>
+                            <a
+                                style="cursor: pointer"
+                                onclick="showMore()"
+                                id="more-topics"
+                            >
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/topics/more-icon.svg"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Показать все</span
+                                    >
+                                </li>
+                            </a>
+                        </ul>
+
+                        <ul class="side-menu-section">
+                            <div class="side-menu-title">DTF</div>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/info/info-icon.svg"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >О проекте</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/info/rules-icon.svg"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Правила</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/info/advertising-icon.svg"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Реклама</span
+                                    >
+                                </li>
+                            </a>
+                            <a href="/popular.html">
+                                <li class="side-menu-item">
+                                    <div class="image">
+                                        <img
+                                            class="icon"
+                                            src="icons/side-menu/info/apps-icon.svg"
+                                        />
+                                    </div>
+                                    <span class="side-menu-item-text"
+                                        >Приложения</span
+                                    >
                                 </li>
                             </a>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div class="main-layout">
-            <div class="aside main-left">
-                <div class="side-menu">
-                    <ul class="side-menu-section">
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/menu/popular-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">
-                                    Популярное
-                                </span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/menu/new-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">Свежее</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/menu/my-list-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">Моя лента</span>
-                            </li>
-                        </a>
-                    </ul>
-
-                    <ul class="side-menu-section" id="topics-list">
-                        <div class="side-menu-title">Темы</div>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/games-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Игры</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/music-icon.png" />
-                                </div>
-                                <span class="side-menu-item-text">Музыка</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/oftop-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Офтоп</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/questions-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Вопросы</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/memes-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Мемы</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/weaboo-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Виабу</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/pets-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Милые животные</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/art-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Творчество</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/night-music-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text" href="/popular.html">Ночной музпостинг</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/cinema-icon.webp" />
-                                </div>
-                                <span class="side-menu-item-text">Кино и сериалы</span>
-                            </li>
-                        </a>
-                        <a style="cursor: pointer;" onclick="showMore()" id="more-topics">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/topics/more-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">Показать все</span>
-                            </li>
-                        </a>
-                    </ul>
-
-                    <ul class="side-menu-section">
-                        <div class="side-menu-title">DTF</div>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/info/info-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">О проекте</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/info/rules-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">Правила</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/info/advertising-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">Реклама</span>
-                            </li>
-                        </a>
-                        <a href="/popular.html">
-                            <li class="side-menu-item">
-                                <div class="image">
-                                    <img class="icon" src="icons/side-menu/info/apps-icon.svg" />
-                                </div>
-                                <span class="side-menu-item-text">Приложения</span>
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-            </div>
-            <div class="main-center">
-                <div class="profile content-item">
-                    <div class="content-header">
-                        <div class="profile-cover">
-                            <img id="profile-cover-image" src="icons/profile/cover.jpg"
-                                onmouseover="onCoverImageMouseOver()"
-                                onmouseout="onConverImageMouseOut()" />
-                        </div>
-                    </div>
-                    <div class="profile-body">
-                        <div class="profile-header">
-                            <div class="image avatar">
-                                <img class="icon" src="/icons/profile/avatar.jpg" />
+                <div class="main-center">
+                    <div class="profile content-item">
+                        <div class="content-header">
+                            <div class="profile-cover">
+                                <img
+                                    id="profile-cover-image"
+                                    src="icons/profile/cover.jpg"
+                                    onmouseover="onCoverImageMouseOver()"
+                                    onmouseout="onConverImageMouseOut()"
+                                    ondragenter="onDragEnter(event)"
+                                    ondragover="onDragOver(event)"
+                                    ondrop="onDrop(event)"
+                                />
                             </div>
-                            <button class="button-size-s">
-                                <a href="settings.html">Настройки</a>
-                            </button>
                         </div>
-                        <h3 class="profile-name">
-                            ИТз-212 Фокин Владислав
-                        </h3>
-                        <span class="profile-creation-date">с 18.05.2024</span>
-                        <div class="followers">
-                            <span>5 подписчиков</span>
-                            <span>99 подписок</span>
-                        </div>
-                        <div class="profile-footer">
-                            <div class="profile-tabs">
-                                <a class="profile-tab" href="">Посты</a>
-                                <a class="profile-tab" href="">Комментарии</a>
+                        <div class="profile-body">
+                            <div class="profile-header">
+                                <div class="image avatar">
+                                    <img
+                                        class="icon"
+                                        src="/icons/profile/avatar.jpg"
+                                    />
+                                </div>
+                                <button class="button-size-s">
+                                    <a href="settings.html">Настройки</a>
+                                </button>
+                            </div>
+                            <h3 class="profile-name">
+                                ИТз-212 Фокин Владислав
+                            </h3>
+                            <span class="profile-creation-date"
+                                >с 18.05.2024</span
+                            >
+                            <div class="followers">
+                                <span>5 подписчиков</span>
+                                <span>99 подписок</span>
+                            </div>
+                            <div class="profile-footer">
+                                <div class="profile-tabs">
+                                    <a class="profile-tab" href="">Посты</a>
+                                    <a class="profile-tab" href=""
+                                        >Комментарии</a
+                                    >
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="aside main-right"></div>
             </div>
-            <div class="aside main-right"></div>
-        </div>
-    </main>
-</body>
-
+        </main>
+    </body>
 </html>
