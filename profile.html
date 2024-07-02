@@ -6,6 +6,22 @@
         <script src="scripts/MoreTopics.js"></script>
         <script src="scripts/DragNDropImage.js"></script>
         <script>
+            function like(event) {
+                let element = event.target;
+
+                if (element.className !== "like-button") {
+                    element = element.parentElement;
+                }
+
+                isLiked = element.getAttribute("like") === "true";
+                element.setAttribute("like", !isLiked);
+                let spanWithCount = element.children.item(1);
+                let count = Number(spanWithCount.innerText);
+                isLiked ? count-- : count++;
+                spanWithCount.innerHTML = count;
+            }
+        </script>
+        <script>
             function showProfileMenu() {
                 document
                     .getElementsByClassName("account-menu")
