@@ -1,10 +1,10 @@
 <?php
 $title = 'Популярное';
 require 'head.php';
-require 'UnauthHeader.php'; ?>
+require 'LoggedInHeader.php'; ?>
 
 <?php
 require 'Menu.php';
-require 'PopularContent.php';
+require 'SettingsContent.php';
 require 'Footer.php';
 ?>

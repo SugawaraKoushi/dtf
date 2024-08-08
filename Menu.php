@@ -3,7 +3,7 @@
         <div class="aside main-left">
             <div class="side-menu">
                 <ul class="side-menu-section">
-                    <a href="/popular.html">
+                    <a href="/Popular.php">
                         <li class="side-menu-item">
                             <div class="image">
                                 <img class="icon" src="icons/side-menu/menu/popular-icon.svg" />
@@ -123,10 +123,10 @@
 
                 <ul class="side-menu-section">
                     <div class="side-menu-title">DTF</div>
-                    <a href="/popular.html">
-                        <li class="side-menu-item side-menu-item-active">
+                    <a href="/About.php">
+                        <li class="side-menu-item">
                             <div class="image">
-                                <img class="icon" src="icons/side-menu/info/info-active-icon.svg" />
+                                <img class="icon" src="icons/side-menu/info/info-icon.svg" />
                             </div>
                             <span class="side-menu-item-text">О проекте</span>
                         </li>

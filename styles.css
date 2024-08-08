@@ -614,7 +614,7 @@ table > tbody > tr > td:not(.content-column-num) {
     padding-bottom: 8px;
 }
 
-.setting {
+.setting, .form-section {
     padding: 0 24px;
     display: grid;
     grid-template-columns: min-content auto;
@@ -640,4 +640,13 @@ table > tbody > tr > td:not(.content-column-num) {
     font-size: 15px;
     line-height: 22px;
     color: #969c9d;
+}
+
+.form-section {
+    display: block;
+}
+
+.email {
+    margin-top: 10px;
+    max-width: 400px;
 }

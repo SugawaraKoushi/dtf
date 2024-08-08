@@ -21,7 +21,7 @@
                 </button>
                 <div class="account-menu">
                     <h5 class="account-menu-title">Мой профиль</h5>
-                    <a href="profile.html" class="user-card">
+                    <a href="Profile.php" class="user-card">
                         <div class="image account-icon">
                             <img class="icon" src="icons/profile/avatar.jpg" />
                         </div>
@@ -51,7 +51,7 @@
                                 <span class="account-menu-item-text">Закладки</span>
                             </li>
                         </a>
-                        <a href="/settings.html">
+                        <a href="Settings.php">
                             <li class="account-menu-item">
                                 <div class="image">
                                     <img class="icon" src="icons/settings/settings.svg" />
