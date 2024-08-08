@@ -14,7 +14,7 @@
                     <a href="/popular.html">
                         <li class="side-menu-item">
                             <div class="image">
-                                <img class="icon" src="icons/side-menu/menu/new-icon.svg" />
+                                <img class="icon" src="/icons/side-menu/menu/new-icon.svg" />
                             </div>
                             <span class="side-menu-item-text">Свежее</span>
                         </li>

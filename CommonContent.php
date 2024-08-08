@@ -4,10 +4,19 @@
     </div>
     <div class="content-body">
         <ul class="settings">
-            <li class="form-section">
-                <h4 class="setting-name">Почта</h4>
-                <input class="field email" placeholder="example@email.com" />
-            </li>
+            <form action="MailHandler.php" method="POST">
+                <li class="form-section">
+                    <h4 class="setting-name">Почта</h4>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="field email"
+                        placeholder="example@email.com"
+                        required/>
+                    <button type="submit" class="button-size-m">Сохранить</button>
+                </li>
+            </form>
         </ul>
     </div>
 </div>

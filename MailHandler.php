@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (count($errors) > 0) {
         // Если есть ошибки, возвращаемся на форму и отображаем ошибки
         $query = http_build_query(["status" => "error", "errors" => $errors]);
-        header("Location: contact.php?" . $query);
+        header("Location: Feedback.php?" . $query);
         exit;
     } else {
         // Отправка письма
-        $to = "james@test.com"; // Замените на ваш email
+        $to = "v_fokin930@mail.ru"; // Замените на ваш email
         $subject = "Новое сообщение с контактной формы";
         $body = "Имя: $name\nEmail: $email\n\nСообщение:\n$message";
         $headers = [
@@ -42,17 +42,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (mail($to, $subject, $body, $headers)) {
             // Если отправка успешна, перенаправляем на страницу с сообщением об успехе
-            header("Location: contact.php?status=success");
+            header("Location: Feedback.php?status=success");
             exit;
         } else {
             // Если произошла ошибка при отправке, перенаправляем с ошибкой
-            header("Location: contact.php?status=error");
-            exit;
+            header("Location: Feedback.php?status=error");
+c            exit;
         }
     }
 } else {
     // Если запрос не POST, перенаправляем на форму
-    header("Location: contact.php");
+    header("Location: Feedback.php");
     exit;
 }
-
+?>
