@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="html/styles.css" />
     <script src="scripts/PageAppearing.js"></script>
     <script src="scripts/MoreTopics.js"></script>
     <script src="scripts/DragNDropImage.js"></script>
