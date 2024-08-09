@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($errors) > 0) {
         // Если есть ошибки, возвращаемся на форму и отображаем ошибки
-        $query = http_build_query(["status" => "error", "errors" => $errors]);
+        $query = http_build_query(["status" => "error", "errors" => $errors, "name" => $name, "email" => $email, "message" => $message]);
         header("Location: Feedback.php?" . $query);
         exit;
     } else {
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Если произошла ошибка при отправке, перенаправляем с ошибкой
             header("Location: Feedback.php?status=error");
-c            exit;
+            exit;
         }
     }
 } else {
