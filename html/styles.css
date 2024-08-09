@@ -103,7 +103,7 @@ main {
 .field {
     height: 42px;
     width: 100%;
-    box-sizing: inherit;
+    box-sizing: border-box;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -649,4 +649,15 @@ table > tbody > tr > td:not(.content-column-num) {
 #email, #name, #msg, #path {
     margin: 10px 0 20px 0;
     max-width: 97%;
+}
+
+.login-container {
+    padding: 20px 24px 20px 24px;
+    display: flex;
+    row-gap: 10px;
+    flex-direction: column;
+    height: fit-content;
+    background-color: #232324;
+    border-radius: 10px;
+    align-items: center;
 }
