@@ -646,7 +646,7 @@ table > tbody > tr > td:not(.content-column-num) {
     display: block;
 }
 
-#email, #name, #msg {
+#email, #name, #msg, #path {
     margin: 10px 0 20px 0;
     max-width: 97%;
 }
