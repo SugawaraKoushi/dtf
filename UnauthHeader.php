@@ -11,7 +11,7 @@
                 Написать
             </button>
             <button class="button-size-m login-button" type="button">
-                <a href="Profile.php">Войти</a>
+                <a href="Login.php">Войти</a>
             </button>
         </div>
     </div>

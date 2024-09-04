@@ -1,7 +1,15 @@
 <?php
+session_start();
 $title = 'Популярное';
 require 'head.php';
-require 'UnauthHeader.php'; ?>
+
+if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
+    require 'UnauthHeader.php'; 
+} else {
+    require 'LoggedInHeader.php';
+}
+
+?>
 
 <?php require 'Menu.php'; ?>
 <div class="content-item">

@@ -1,9 +1,22 @@
 <?php
+session_start();
 $title = 'Профиль';
-require 'head.php';
-require 'LoggedInHeader.php'; ?>
+require 'Head.php';
+require 'LoggedInHeader.php';
+require 'Menu.php'; 
+require 'DB.php';
 
-<?php require 'Menu.php'; ?>
+if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
+    header('Location: Login.php');
+    exit;
+}
+
+$query = $pdo->prepare('SELECT created_at from users where email = ?');
+$query->execute([$_SESSION['email']]);
+$result = $query->fetch();
+$created = $result['created_at'];
+
+?>
 <div class="profile content-item">
     <div class="content-header">
         <div class="profile-cover">
@@ -29,9 +42,9 @@ require 'LoggedInHeader.php'; ?>
             </button>
         </div>
         <h3 class="profile-name">
-            ИТз-212 Фокин Владислав
+            <?php echo $_SESSION['name'] ?>
         </h3>
-        <span class="profile-creation-date">с 18.05.2024</span>
+        <span class="profile-creation-date">с <?php echo date('d.m.Y',strtotime($created)); ?></span>
         <div class="followers">
             <span>5 подписчиков</span>
             <span>99 подписок</span>

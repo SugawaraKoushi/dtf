@@ -3,7 +3,7 @@ $host = 'localhost';
 $db = 'dtf';
 $username = 'root';
 $password = '';
-$charset = 'utf8mb64';
+$charset = 'utf8';
 
 // Опции подключения
 $options = [
@@ -15,10 +15,9 @@ $options = [
 // Создание объекта PDO для подключения к базе данных
 try {
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
     // Если подключение не удалось, вывести сообщение об ошибке
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
-
 ?>

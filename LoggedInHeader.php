@@ -1,3 +1,13 @@
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    session_destroy();
+    header('Location: Login.php');
+    exit;
+}
+
+?>
+
 <header>
     <div class="header-layout">
         <div class="header-left">
@@ -28,7 +38,7 @@
                         <div>
                             <div class="user-card-title">
                                 <h3 class="user-card-name">
-                                    ИТз-212 Фокин Владислав
+                                    <?php echo $_SESSION['name'] ?>
                                 </h3>
                             </div>
                             <span class="user-card-subtitle">Личный блог</span>
@@ -59,6 +69,11 @@
                                 <span class="account-menu-item-text">Настройки</span>
                             </li>
                         </a>
+                        <form method="post">
+                            <li class="account-menu-item">
+                                <button type="submit" class="button-size-s">Выйти</button>
+                            </li>
+                        </form>
                     </ul>
                 </div>
             </div>

@@ -160,7 +160,7 @@ button:hover {
     width: 136px;
 }
 
-.login-button {
+.login-button, .register-button {
     background-color: #418af4;
     color: #fff;
     width: 80px;
@@ -230,7 +230,7 @@ button:hover {
     color: #969c9d;
 }
 
-.login-button:hover {
+.login-button:hover, .register-button:hover {
     background-color: #4189f4dd;
 }
 
@@ -652,7 +652,8 @@ table > tbody > tr > td:not(.content-column-num) {
 }
 
 .login-container {
-    padding: 20px 24px 20px 24px;
+    margin: 100px;
+    padding: 50px;
     display: flex;
     row-gap: 10px;
     flex-direction: column;
@@ -660,4 +661,18 @@ table > tbody > tr > td:not(.content-column-num) {
     background-color: #232324;
     border-radius: 10px;
     align-items: center;
+}
+
+.login-container > div {
+    height: 100%;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.login-container > button {
+    width: 100%;
+}
+
+.login-container * label {
+    margin-left: 10px;
 }

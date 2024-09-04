@@ -1,5 +1,6 @@
 <?php header("Content-type: text/html;charset=utf-8"); ?>
 <html lang="ru">
+    <title><?php echo $title?></title>
 
 <head>
     <link rel="stylesheet" href="html/styles.css" />

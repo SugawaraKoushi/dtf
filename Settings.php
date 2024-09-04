@@ -1,6 +1,6 @@
 <?php
-$title = 'Популярное';
-require 'head.php';
+$title = 'Настройки';
+require 'Head.php';
 require 'LoggedInHeader.php'; ?>
 
 <?php require 'Menu.php'; ?>
