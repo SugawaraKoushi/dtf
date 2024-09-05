@@ -1,26 +1,24 @@
 <?php
 session_start();
 $title = 'Популярное';
-require 'head.php';
+require './Head.php';
 
 if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
-    require 'UnauthHeader.php'; 
+    require './UnauthHeader.php'; 
 } else {
-    require 'LoggedInHeader.php';
+    require './LoggedInHeader.php';
 }
 
-?>
-
-<?php require 'Menu.php'; ?>
+require 'Menu.php'; ?>
 <div class="content-item">
     <div class="content-header">
         <div class="author">
             <div class="image author-icon">
                 <img
                     class="icon"
-                    src="icons/side-menu/topics/games-icon.webp" />
+                    src="/icons/side-menu/topics/games-icon.webp" />
             </div>
-            <a class="author-name" href="/popular.html">Granger</a>
+            <a class="author-name" href="Popular.php">Granger</a>
             <div class="author-details">
                 <span>Игры</span>
                 <span class="posting-time">2ч</span>
@@ -47,7 +45,7 @@ if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
                 </figcaption>
                 <img
                     class="content-image"
-                    src="icons/content/post-images/1.webp" />
+                    src="/icons/content/post-images/1.webp" />
             </figure>
         </article>
         <div class="content-counters">
@@ -63,25 +61,25 @@ if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
             liked="false">
             <img
                 class="like-icon"
-                src="icons/content/like-icon.svg" />
+                src="/icons/content/like-icon.svg" />
             <span>320</span>
         </button>
         <button class="comments-button">
             <img
                 class="like-icon"
-                src="icons/content/comment-icon.svg" />
+                src="/icons/content/comment-icon.svg" />
             <span>86</span>
         </button>
         <button class="favourite-button">
             <img
                 class="like-icon"
-                src="icons/content/favourite-icon.svg" />
+                src="/icons/content/favourite-icon.svg" />
             <span>10</span>
         </button>
         <button class="share-button">
             <img
                 class="like-icon"
-                src="icons/content/share-icon.svg" />
+                src="/icons/content/share-icon.svg" />
         </button>
     </div>
 </div>
@@ -91,9 +89,9 @@ if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
             <div class="image author-icon">
                 <img
                     class="icon"
-                    src="icons/side-menu/topics/games-icon.webp" />
+                    src="/icons/side-menu/topics/games-icon.webp" />
             </div>
-            <a class="author-name" href="/popular.html">Stanislav Kupriyanov</a>
+            <a class="author-name" href="Popular.php">Stanislav Kupriyanov</a>
             <div class="author-details">
                 <span>Путешествия</span>
                 <span class="posting-time">12:22</span>
@@ -136,25 +134,25 @@ if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
             liked="false">
             <img
                 class="like-icon"
-                src="icons/content/like-icon.svg" />
+                src="/icons/content/like-icon.svg" />
             <span>614</span>
         </button>
         <button class="comments-button">
             <img
                 class="like-icon"
-                src="icons/content/comment-icon.svg" />
+                src="/icons/content/comment-icon.svg" />
             <span>243</span>
         </button>
         <button class="favourite-button">
             <img
                 class="like-icon"
-                src="icons/content/favourite-icon.svg" />
+                src="/icons/content/favourite-icon.svg" />
             <span>276</span>
         </button>
         <button class="share-button">
             <img
                 class="like-icon"
-                src="icons/content/share-icon.svg" />
+                src="/icons/content/share-icon.svg" />
         </button>
     </div>
 </div>
@@ -164,9 +162,9 @@ if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
             <div class="image author-icon">
                 <img
                     class="icon"
-                    src="icons/side-menu/topics/games-icon.webp" />
+                    src="/icons/side-menu/topics/games-icon.webp" />
             </div>
-            <a class="author-name" href="/popular.html">Сергей Исенеков</a>
+            <a class="author-name" href="Popular.php">Сергей Исенеков</a>
             <div class="author-details">
                 <span>Кино и сериалы</span>
                 <span class="posting-time">15:10</span>
@@ -193,7 +191,7 @@ if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
                 </figcaption>
                 <img
                     class="content-image"
-                    src="icons/content/post-images/3.webp" />
+                    src="/icons/content/post-images/3.webp" />
             </figure>
         </article>
         <div class="content-counters">
@@ -209,26 +207,26 @@ if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
             liked="false">
             <img
                 class="like-icon"
-                src="icons/content/like-icon.svg" />
+                src="/icons/content/like-icon.svg" />
             <span>44</span>
         </button>
         <button class="comments-button">
             <img
                 class="like-icon"
-                src="icons/content/comment-icon.svg" />
+                src="/icons/content/comment-icon.svg" />
             <span>103</span>
         </button>
         <button class="favourite-button">
             <img
                 class="like-icon"
-                src="icons/content/favourite-icon.svg" />
+                src="/icons/content/favourite-icon.svg" />
             <span>7</span>
         </button>
         <button class="share-button">
             <img
                 class="like-icon"
-                src="icons/content/share-icon.svg" />
+                src="/icons/content/share-icon.svg" />
         </button>
     </div>
 </div>
-<?php require 'Footer.php'; ?>
+<?php require './Footer.php'; ?>

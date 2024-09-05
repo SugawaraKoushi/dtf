@@ -1,12 +1,20 @@
 <?php
-$title = 'Основные';
-require './Head.php';
-require './LoggedInHeader.php'; ?>
+$title = 'Настройка страницы';
 
-<?php require '/Menu.php'; ?>
+if (count($_SESSION) <= 0 || $_SESSION['role'] != 'admin') {
+    header('Location: ../Popular.php');
+    exit;
+}
+
+require '../Head.php';
+require '../DB.php';
+require '../LoggedInHeader.php';
+require '../Menu.php';
+?>
+
 <div class="content-item">
     <div class="content-header settings-header">
-        <h3>Основные</h3>
+        <h3>Пользователь</h3>
     </div>
     <div class="content-body">
         <ul class="settings">

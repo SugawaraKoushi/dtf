@@ -3,10 +3,10 @@
     <title><?php echo $title?></title>
 
 <head>
-    <link rel="stylesheet" href="html/styles.css" />
-    <script src="scripts/PageAppearing.js"></script>
-    <script src="scripts/MoreTopics.js"></script>
-    <script src="scripts/DragNDropImage.js"></script>
+    <link rel="stylesheet" href="/html/styles.css" />
+    <script src="/scripts/PageAppearing.js"></script>
+    <script src="/scripts/MoreTopics.js"></script>
+    <script src="/scripts/DragNDropImage.js"></script>
     <script>
         function like(event) {
             let element = event.target;

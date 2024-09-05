@@ -25,7 +25,7 @@ function showMore() {
 
 function createTopic(textContent, icon) {
     let a = document.createElement("a");
-    a.href = "/popular.html";
+    a.href = "./Popular.php";
 
     let li = document.createElement("li");
     li.className = "side-menu-item";
@@ -35,7 +35,7 @@ function createTopic(textContent, icon) {
 
     let img = document.createElement("img");
     img.className = "icon";
-    img.src = `icons/side-menu/topics/${icon}`;
+    img.src = `/icons/side-menu/topics/${icon}`;
 
     let span = document.createElement("span");
     span.className = "side-menu-item-text";

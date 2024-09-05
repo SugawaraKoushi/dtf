@@ -1,7 +1,7 @@
 <header>
     <div class="header-layout">
         <div class="header-left">
-            <img src="icons/logo.svg" />
+            <img src="/icons/logo.svg" />
         </div>
         <div class="header-center">
             <input class="field" placeholder="Поиск" />
@@ -11,7 +11,7 @@
                 Написать
             </button>
             <button class="button-size-m login-button" type="button">
-                <a href="Login.php">Войти</a>
+                <a href="/Login.php">Войти</a>
             </button>
         </div>
     </div>

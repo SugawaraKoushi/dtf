@@ -1,7 +1,13 @@
 <?php
+session_start();
 $title = 'О проекте';
-require 'head.php';
-require 'UnauthHeader.php';
+require './Head.php';
+
+if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
+    require './UnauthHeader.php'; 
+} else {
+    require './LoggedInHeader.php';
+}
 
 // Возвращает размер директории
 function pathSize($dir)
@@ -33,9 +39,9 @@ require 'Menu.php';?>
             <div class="image author-icon">
                 <img
                     class="icon"
-                    src="icons/side-menu/topics/games-icon.webp" />
+                    src="/icons/side-menu/topics/games-icon.webp" />
             </div>
-            <a class="author-name" href="/popular.html">DTF</a>
+            <a class="author-name" href="Popular.php">DTF</a>
             <div class="author-details">
                 <span class="posting-time">15.05.2024</span>
             </div>
@@ -130,25 +136,25 @@ require 'Menu.php';?>
         <button class="like-button">
             <img
                 class="like-icon"
-                src="icons/content/like-icon.svg" />
+                src="/icons/content/like-icon.svg" />
             <span>320</span>
         </button>
         <button class="comments-button">
             <img
                 class="like-icon"
-                src="icons/content/comment-icon.svg" />
+                src="/icons/content/comment-icon.svg" />
             <span>86</span>
         </button>
         <button class="favourite-button">
             <img
                 class="like-icon"
-                src="icons/content/favourite-icon.svg" />
+                src="/icons/content/favourite-icon.svg" />
             <span>10</span>
         </button>
         <button class="share-button">
             <img
                 class="like-icon"
-                src="icons/content/share-icon.svg" />
+                src="/icons/content/share-icon.svg" />
         </button>
     </div>
 </div>
@@ -158,9 +164,9 @@ require 'Menu.php';?>
             <div class="image author-icon">
                 <img
                     class="icon"
-                    src="icons/side-menu/topics/games-icon.webp" />
+                    src="/icons/side-menu/topics/games-icon.webp" />
             </div>
-            <a class="author-name" href="/popular.html">DTF</a>
+            <a class="author-name" href="/Popular.php">DTF</a>
             <div class="author-details">
                 <span class="posting-time">15.05.2024</span>
             </div>
@@ -187,27 +193,27 @@ require 'Menu.php';?>
         <button class="like-button">
             <img
                 class="like-icon"
-                src="icons/content/like-icon.svg" />
+                src="/icons/content/like-icon.svg" />
             <span>320</span>
         </button>
         <button class="comments-button">
             <img
                 class="like-icon"
-                src="icons/content/comment-icon.svg" />
+                src="/icons/content/comment-icon.svg" />
             <span>86</span>
         </button>
         <button class="favourite-button">
             <img
                 class="like-icon"
-                src="icons/content/favourite-icon.svg" />
+                src="/icons/content/favourite-icon.svg" />
             <span>10</span>
         </button>
         <button class="share-button">
             <img
                 class="like-icon"
-                src="icons/content/share-icon.svg" />
+                src="/icons/content/share-icon.svg" />
         </button>
     </div>
 </div>
 <?php
-require 'Footer.php'; ?>
+require './Footer.php'; ?>

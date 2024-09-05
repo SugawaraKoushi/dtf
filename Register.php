@@ -1,9 +1,9 @@
 <?php
 session_start();
 $title = 'Регистрация';
-require 'DB.php';
-require 'Head.php';
-require 'UnauthHeader.php';
+require './DB.php';
+require './Head.php';
+require './UnauthHeader.php';
 
 if (count($_SESSION) > 0 || !is_null($_SESSION['user_id'])) {
     header('Location: Popular.php');
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($query->execute([$name, $email, $password])) {
         $_SESSION['user_id'] = $pdo->lastInsertId();
         $_SESSION['username'] = $username;
-        header('Location: Popular.php');
+        header('Location: /Popular.php');
         exit;
     } else {
         $error = 'Ошибка при регистрации';
@@ -61,4 +61,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </main>
 
 <?php
-require 'Footer.php' ?>
+require './Footer.php' ?>

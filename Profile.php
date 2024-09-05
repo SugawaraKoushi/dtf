@@ -1,13 +1,13 @@
 <?php
 session_start();
 $title = 'Профиль';
-require 'Head.php';
-require 'LoggedInHeader.php';
-require 'Menu.php'; 
-require 'DB.php';
+require './Head.php';
+require './LoggedInHeader.php';
+require './Menu.php'; 
+require './DB.php';
 
 if (count($_SESSION) <= 0 || is_null($_SESSION['user_id'])) {
-    header('Location: Login.php');
+    header('Location: ./Login.php');
     exit;
 }
 
@@ -22,7 +22,7 @@ $created = $result['created_at'];
         <div class="profile-cover">
             <img
                 id="profile-cover-image"
-                src="icons/profile/cover.jpg"
+                src="/icons/profile/cover.jpg"
                 onmouseover="onCoverImageMouseOver()"
                 onmouseout="onConverImageMouseOut()"
                 ondragenter="onDragEnter(event)"
@@ -57,4 +57,4 @@ $created = $result['created_at'];
         </div>
     </div>
 </div>
-<?php require 'Footer.php'; ?>
+<?php require './Footer.php'; ?>

@@ -1,12 +1,12 @@
 <?php
 session_start();
 $title = 'Вход в DTF';
-require 'Head.php';
-require 'UnauthHeader.php';
-require 'DB.php';
+require './Head.php';
+require './UnauthHeader.php';
+require './DB.php';
 
 if (count($_SESSION) > 0 && !is_null($_SESSION['user_id'])) {
-    header('Location: Popular.php');
+    header('Location: ./Popular.php');
     exit;
 }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['name'] = $user['name'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['role'] = $user['role'];
-        header('Location: Popular.php');
+        header('Location: ./Popular.php');
         exit;
     } else {
         $error = 'Неправильный email или пароль';
@@ -58,4 +58,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </main>
 
 <?php
-require 'Footer.php' ?>
+require './Footer.php' ?>

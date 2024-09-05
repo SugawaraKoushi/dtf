@@ -1,9 +1,9 @@
 <?php
 $title = 'Обратная связь';
-require 'head.php';
-require 'LoggedInHeader.php'; ?>
+require './Head.php';
+require './LoggedInHeader.php';
+require './Menu.php'; ?>
 
-<?php require 'Menu.php'; ?>
 <div class="content-item">
     <div class="content-header settings-header">
         <h3>Обратная связь</h3>
@@ -57,4 +57,4 @@ require 'LoggedInHeader.php'; ?>
         </ul>
     </div>
 </div>
-<?php require 'Footer.php'; ?>
+<?php require './Footer.php'; ?>
