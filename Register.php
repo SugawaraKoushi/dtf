@@ -5,8 +5,8 @@ require './DB.php';
 require './Head.php';
 require './UnauthHeader.php';
 
-if (count($_SESSION) > 0 || !is_null($_SESSION['user_id'])) {
-    header('Location: Popular.php');
+if (count($_SESSION) > 0 && !is_null($_SESSION['user_id'])) {
+    header('Location: ./Popular.php');
     exit;
 }
 
