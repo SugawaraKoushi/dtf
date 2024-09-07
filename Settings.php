@@ -56,10 +56,10 @@ require './Menu.php'; ?>
             </a>
             <?php
             if ($_SESSION['role'] == 'admin') {
-                echo '<a href="admin/Menu.php">';
+                echo '<a href="/admin/Menu.php">';
                 echo '<li class="setting">';
                 echo '<div class="image setting-icon">';
-                echo '<img class="icon" src="/icons/settings/bell.svg" />';
+                echo '<img class="icon" src="/icons/settings/key.svg" />';
                 echo '</div>';
                 echo '<h4 class="setting-name">Панель администратора</h4>';
                 echo '<span class="setting-description">Администрирование системы</span>';

@@ -7,7 +7,6 @@ if (count($_SESSION) <= 0 || $_SESSION['role'] != 'admin') {
     exit;
 }
 
-
 require '../Head.php';
 require '../DB.php';
 require '../LoggedInHeader.php';
@@ -39,7 +38,7 @@ require '../Menu.php';
                     <span class="setting-description">Управление пользователями</span>
                 </li>
             </a>
-            <a>
+            <a href="./Mails.php">
                 <li class="setting">
                     <div class="image setting-icon">
                         <img class="icon" src="../icons/admin/mail.svg" />

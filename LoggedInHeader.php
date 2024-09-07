@@ -1,11 +1,3 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    session_destroy();
-    header('Location: ./Login.php');
-    exit;
-}
-?>
-
 <header>
     <div class="header-layout">
         <div class="header-left">
@@ -29,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </button>
                 <div class="account-menu">
                     <h5 class="account-menu-title">Мой профиль</h5>
-                    <a href="Profile.php" class="user-card">
+                    <a href="/Profile.php" class="user-card">
                         <div class="image account-icon">
                             <img class="icon" src="/icons/profile/avatar.jpg" />
                         </div>
@@ -59,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <span class="account-menu-item-text">Закладки</span>
                             </li>
                         </a>
-                        <a href="Settings.php">
+                        <a href="/Settings.php">
                             <li class="account-menu-item">
                                 <div class="image">
                                     <img class="icon" src="/icons/settings/settings.svg" />
@@ -67,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <span class="account-menu-item-text">Настройки</span>
                             </li>
                         </a>
-                        <form method="post">
+                        <form action="/Logout.php" method="post">
                             <li class="account-menu-item">
                                 <button type="submit" class="button-size-s">Выйти</button>
                             </li>

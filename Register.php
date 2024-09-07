@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-
     // Добавление нового пользователя в БД
     $query = $pdo->prepare('INSERT INTO users (name, email, password) VALUES (?, ?, ?)');
 

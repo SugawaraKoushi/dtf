@@ -1,4 +1,6 @@
 <?php
+require './DB.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
@@ -16,6 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Email обязателен для заполнения.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Некорректный формат email.";
+    } 
+        
+    // Поиск пользователя по email в БД
+    $query = $pdo->prepare('SELECT * FROM users where email = ?');
+    $query->execute([$email]);
+    $user = $query->fetch();
+
+    if (!is_bool($user)) {
+        if (count($user) < 1 && is_null($user)) {
+            $errors[] = "Пользователь с данным email не существует";
+        }
+    } else {
+        $errors[] = "Пользователь с данным email не существует";
     }
 
     // Проверка сообщения
@@ -39,6 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'X-Mailer' => 'PHP/' . phpversion(),
             'Content-Type' => 'text/plain; charset=utf-8'
         ];
+
+        // Добавление письма в БД
+        $query = $pdo->prepare('INSERT INTO emails(user_id, email, message) VALUES (?, ?, ?)');
+        $query->execute([$user['id'], $email, $message]);
 
         if (mail($to, $subject, $body, $headers)) {
             // Если отправка успешна, перенаправляем на страницу с сообщением об успехе

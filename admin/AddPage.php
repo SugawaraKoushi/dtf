@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = 'Настройка страницы';
+$title = 'Добавление страницы';
 
 if (count($_SESSION) <= 0 || $_SESSION['role'] != 'admin') {
     header('Location: ../Popular.php');
@@ -9,17 +9,15 @@ if (count($_SESSION) <= 0 || $_SESSION['role'] != 'admin') {
 
 require '../DB.php';
 
-$query = $pdo->prepare('SELECT * FROM pages WHERE id = ?');
-$query->execute([$_GET['id']]);
-$page = $query->fetch();
+$id = $pdo->query('SELECT max(id) FROM pages')->fetch();
+$id = $id['max(id)'] + 1;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $page['id'];
     $title = trim($_POST['title']);
     $content = trim($_POST['content']);
 
-    $query = $pdo->prepare('UPDATE pages SET title=?, content=? WHERE id=?');
-    $query->execute([$title, $content, $id]);
+    $query = $pdo->prepare('INSERT INTO pages (id, title, content) VALUES (?, ?, ?)');
+    $query->execute([$id, $title, $content]);
     header('Location: ./Pages.php');
     exit;
 }
@@ -31,7 +29,7 @@ require '../Menu.php';
 
 <div class="content-item">
     <div class="content-header settings-header">
-        <h3><?php echo $page['title'] ?></h3>
+        <h3>Добавление страницы</h3>
     </div>
     <div class="content-body">
         <ul class="settings">
@@ -43,7 +41,7 @@ require '../Menu.php';
                         id="id"
                         name="id"
                         class="field"
-                        value=<?php echo $page['id'] ?>
+                        value=<?php echo $id ?>
                         disabled
                         required />
                 </li>
@@ -54,7 +52,6 @@ require '../Menu.php';
                         id="title"
                         name="title"
                         class="field"
-                        value=<?php echo $page['title'] ?>
                         required />
                 </li>
                 <li class="form-section">
@@ -63,9 +60,7 @@ require '../Menu.php';
                         type="text"
                         id="content"
                         name="content"
-                        class="field">
-                        <?php echo htmlspecialchars($page['content']) ?>
-                    </textarea>
+                        class="field"></textarea>
                 </li>
                 <button type="submit" class="button-size-m submit-btn">Сохранить</button>
             </form>
